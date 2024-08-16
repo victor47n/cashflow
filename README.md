@@ -6,12 +6,22 @@ A arquitetura da API baseia-se em **REST**, utilizando métodos **HTTP** padrão
 
 Dentre os pacotes NuGet utilizados, o **AutoMapper** é o responsável pelo mapeamento entre objetos de domínio e requisição/resposta, reduzindo a necessidade de código repetitivo e manual. O **FluentAssertions** é utilizado nos testes de unidade para tornar as verificações mais legíveis, ajudando a escrever testes claros e compreensíveis. Para as validações, o **FluentValidation** é usado para implementar regras de validação de forma simples e intuitiva nas classes de requisições, mantendo o código limpo e fácil de manter. Por fim, o **EntityFramework** atua como um **ORM (Object-Relational Mapper)** que simplifica as interações com o banco de dados, permitindo o uso de objetos .NET para manipular dados diretamente, sem a necessidade de lidar com consultas SQL.
 
+![hero-image]
+
 ### Features
 
 - **Domain-Driven Design (DDD)**: Estrutura modulas que facilita o entendimento e a manutenção do domínio da aplicação.
 - **Testes de Unidade**: Testes abrangentes com **FluentAssertions** para garantir a funcionalidade e a qualidade.
 - **Geração de Relatórios**: Capacidade de exportar relatórios detalhados para **PDF** e **Excel**, oferecendo uma análise visual eficaz das despesas.
 - **RESTful API com Documentação Swagger**: Interface documentada que facilita a integração e o teste por parte dos desenvolvedores.
+
+### Construido com
+
+![badge-dot-net]
+![badge-windows]
+![badge-visual-studio]
+![badge-mysql]
+![badge-swagger]
 
 ## Getting Started
 
@@ -20,7 +30,7 @@ Para obter uma cópia local funcionando, siga estes passos simples.
 ### Requisitos
 
 * Visual Studio versão 2022+ ou Visual Studio Code
-* Windows 10+ ou Linux/MacOS com [.NET SDK](https://dotnet.microsoft.com/pt-br/download/dotnet/8.0) instalado
+* Windows 10+ ou Linux/MacOS com [.NET SDK][dot-net-sdk] instalado
 * MySQL Server
 
 ### Instalação
@@ -31,3 +41,16 @@ Para obter uma cópia local funcionando, siga estes passos simples.
     ```
 2. Preencha as informações no arquivo `appsettings.Development.json`
 3. Execute a API e aproveite o seu teste :)
+
+<!-- Links -->
+[dot-net-sdk]: https://dotnet.microsoft.com/pt-br/download/dotnet/8.0
+
+<!-- Images -->
+[hero-image]: images/heroimage.png
+
+<!-- Badges -->
+[badge-dot-net]: https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=fff&style=for-the-badge
+[badge-windows]: https://img.shields.io/badge/Windows-0078D4?logo=windows&logoColor=fff&style=for-the-badge
+[badge-visual-studio]: https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white
+[badge-mysql]: https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff&style=for-the-badge
+[badge-swagger]: https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=000&style=for-the-badge
