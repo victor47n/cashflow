@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 namespace CashFlow.Infrastructure.DataAccess.Repositories;
 internal class UserRepository : IUserReadOnlyRepository, IUserWriteOnlyRepository
 {
-    private readonly CashflowDbContext _dbContext;
+    private readonly CashFlowDbContext _dbContext;
 
-    public UserRepository(CashflowDbContext dbContext) => _dbContext = dbContext;
+    public UserRepository(CashFlowDbContext dbContext) => _dbContext = dbContext;
 
     public async Task Add(User user)
     {

@@ -3,29 +3,38 @@ using CashFlow.Domain.Enums;
 using CashFlow.Domain.Extensions;
 using CashFlow.Domain.Reports;
 using CashFlow.Domain.Repositories.Expenses;
+using CashFlow.Domain.Services.LoggedUser;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Presentation;
 
 namespace CashFlow.Application.UseCases.Expenses.Reports.Excel;
-internal class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUseCase
+public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUseCase
 {
     private const string CURRENCY_SYMBOL = "$";
     private readonly IExpensesReadOnlyRepository _repository;
+    private readonly ILoggedUser _loggedUser;
 
-    public GenerateExpensesReportExcelUseCase(IExpensesReadOnlyRepository repository)
+    public GenerateExpensesReportExcelUseCase(IExpensesReadOnlyRepository repository, ILoggedUser loggedUser)
     {
         _repository = repository;
+        _loggedUser = loggedUser;
     }
 
     public async Task<byte[]> Execute(DateOnly month)
     {
-        var expenses = await _repository.FilterByMonth(month);
+        var loggedUser = await _loggedUser.Get();
+
+        var expenses = await _repository.FilterByMonth(loggedUser, month);
 
         if (expenses.Count == 0) return [];
 
         using var workbook = new XLWorkbook
         {
-            Author = "Victor"
+            Author = loggedUser.Name,
         };
+
+        workbook.Style.Font.FontSize = 12;
+        workbook.Style.Font.FontName = "Times New Roman";
 
         var worksheet = workbook.Worksheets.Add(month.ToString("Y"));
 

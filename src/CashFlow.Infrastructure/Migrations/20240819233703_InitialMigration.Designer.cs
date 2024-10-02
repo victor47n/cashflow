@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CashFlow.Infrastructure.Migrations
 {
-    [DbContext(typeof(CashflowDbContext))]
+    [DbContext(typeof(CashFlowDbContext))]
     [Migration("20240819233703_InitialMigration")]
     partial class InitialMigration
     {

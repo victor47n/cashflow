@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess;
 
-internal class CashflowDbContext : DbContext
+public class CashFlowDbContext : DbContext
 {
-    public CashflowDbContext(DbContextOptions options) : base(options) { }
+    public CashFlowDbContext(DbContextOptions options) : base(options) { }
 
     public DbSet<Expense> Expenses { get; set; }
     public DbSet<User> Users { get; set; }

@@ -22,14 +22,15 @@ internal class JwtTokenGenerator : IAccessTokenGenerator
         var claims = new List<Claim>()
         {
             new (ClaimTypes.Name, user.Name),
-            new (ClaimTypes.Sid, user.UserIdentifier.ToString())
+            new (ClaimTypes.Sid, user.UserIdentifier.ToString()),
+            new (ClaimTypes.Role, user.Role),
         };
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Expires = DateTime.UtcNow.AddMinutes(_expirationTimeMinutes),
             SigningCredentials = new SigningCredentials(SecurityKey(), SecurityAlgorithms.HmacSha256Signature),
-            Subject = new ClaimsIdentity()
+            Subject = new ClaimsIdentity(claims)
         };
 
         var tokenHandler = new JwtSecurityTokenHandler();
