@@ -66,7 +66,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         var password = user.Password;
 
-        user.Password = passwordEncrypter.Encripty(user.Password);
+        user.Password = passwordEncrypter.Encrypt(user.Password);
 
         dbContext.Users.Add(user);
 
@@ -87,7 +87,7 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         var password = user.Password;
 
-        user.Password = passwordEncrypter.Encripty(user.Password);
+        user.Password = passwordEncrypter.Encrypt(user.Password);
 
         dbContext.Users.Add(user);
 

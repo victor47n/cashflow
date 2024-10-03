@@ -10,7 +10,7 @@ public class PasswordEncrypterBuilder
     {
         _mock = new Mock<IPasswordEncrypter>();
 
-        _mock.Setup(passwordEncrypter => passwordEncrypter.Encripty(It.IsAny<string>())).Returns("!asd09123_@#4590f");
+        _mock.Setup(passwordEncrypter => passwordEncrypter.Encrypt(It.IsAny<string>())).Returns("!asd09123_@#4590f");
     }
 
     public PasswordEncrypterBuilder Verify(string? password)

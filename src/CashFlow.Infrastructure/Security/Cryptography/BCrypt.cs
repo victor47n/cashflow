@@ -4,7 +4,7 @@ using BC = BCrypt.Net.BCrypt;
 namespace CashFlow.Infrastructure.Security.Cryptography;
 internal class BCrypt : IPasswordEncrypter
 {
-    public string Encripty(string password)
+    public string Encrypt(string password)
     {
         string passwordHash = BC.HashPassword(password);
 
